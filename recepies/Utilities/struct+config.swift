@@ -9,7 +9,7 @@ import Foundation
 
 struct AppConfig {
   static let apiKeyName: String = "Apiservice"
-  static let googleKeyName: String = "Googlekey"
+  static let googleKeyName: String = "MapKey"
   /// Navigation title
   static let title = "Recepies"
   /// Search content
