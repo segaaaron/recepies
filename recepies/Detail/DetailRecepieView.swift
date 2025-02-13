@@ -24,7 +24,14 @@ struct DetailRecepieView: View {
         }
         .indicator(.activity)
         .frame(height: 500)
-        .background(Color.black.opacity(0.6))
+        .overlay(
+          RoundedRectangle(cornerRadius: 5)
+            .fill(Color.black)
+            .frame(height: 500)
+            .frame(maxWidth: .infinity)
+            .opacity(0.2)
+          , alignment: .topLeading
+        )
         
         VStack {
           VStack(alignment: .leading, spacing: 10) {

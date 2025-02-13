@@ -31,6 +31,7 @@ struct HomeView: View {
       .navigationTitle(AppConfig.title)
       .navigationBarColor(backgroundColor: Color.customBlue.b3, titleColor: .white)
     }
+    .accentColor(Color.white)
   }
 }
 
