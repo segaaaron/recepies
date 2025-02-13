@@ -27,20 +27,6 @@ enum SearchType {
   case firsState
 }
 
-enum SearchMessage: String {
-  case title = "Still no searches?"
-  case subtitle = "At least 3 characters are required for your search"
-  case noFoundMessage = "Sorry, we couldn't find what you were looking for."
-}
-
-enum InputSeachText: String {
-  case placeholder = "Search a movie"
-}
-
-enum NavigationTitleMessage: String {
-  case title = "Recepies"
-}
-
 enum FocusedField {
   case search
 }

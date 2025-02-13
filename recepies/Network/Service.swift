@@ -10,34 +10,15 @@ import Combine
 
 final class Service {
   static let shared = Service()
-  private let path = PathUrl()
+  private let path = ApiUrl()
   private var cancellables = Set<AnyCancellable>()
   
   private init() {}
   
-  func fetchData<T: Decodable>(query: String = "", page: Int = 0, type: T.Type, endPoint: Endpoint = .search, movieId: String = "") -> Future<T, Error> {
+  func fetchData<T: Decodable>(query: String = "", page: Int = 0, type: T.Type) -> Future<T, Error> {
     let request = Request()
-    var params: [String: Any] = [:]
 
-    switch endPoint {
-    case .search:
-      let searchParams: [String: Any]  = [
-        "apikey": path.apikey,
-        "s": query,
-        "page": page
-      ]
-      params = searchParams
-    case .details:
-      let detailParams: [String: Any]  = [
-        "apikey": path.apikey,
-        "i": movieId,
-        "plot": "full"
-      ]
-      params = detailParams
-    }
-
-    request.url = path.baseUrl
-    request.params = params
+    request.url = path.webServiceUrl(AppConfig.apiKeyName)
     return Future<T, Error> { [weak self] promise in
       guard let self = self,
         let respRequest = ApiRequest.getRequest(with: request) else {
