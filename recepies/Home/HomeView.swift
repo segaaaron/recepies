@@ -12,9 +12,12 @@ struct HomeView: View {
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {
-        LazyVStack {
+        LazyVStack(spacing: 0) {
           ForEach(viewModel.recepies, id: \.id) { recepie in
-            Text(recepie.name)
+            RecepieCards(recepie: recepie)
+  
+            Divider()
+              .border(Color.gray, width: 2)
           }
         }
         .onAppear {
