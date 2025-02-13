@@ -14,10 +14,14 @@ struct HomeView: View {
       ScrollView(showsIndicators: false) {
         LazyVStack(spacing: 0) {
           ForEach(viewModel.recepies, id: \.id) { recepie in
-            RecepieCards(recepie: recepie)
-  
-            Divider()
-              .border(Color.gray, width: 2)
+            NavigationLink {
+              DetailRecepieView(recepieDetail: recepie.productDetail, name: recepie.name)
+            } label: {
+              RecepieCards(recepie: recepie)
+              
+              Divider()
+                .border(Color.gray, width: 2)
+            }
           }
         }
         .onAppear {
@@ -25,6 +29,7 @@ struct HomeView: View {
         }
       }
       .navigationTitle(AppConfig.title)
+      .navigationBarColor(backgroundColor: Color.customBlue.b3, titleColor: .white)
     }
   }
 }

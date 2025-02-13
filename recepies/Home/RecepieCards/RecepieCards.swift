@@ -10,7 +10,13 @@ import SDWebImage
 import SDWebImageSwiftUI
 
 struct RecepieCards: View {
+  @Environment(\.colorScheme) var colorScheme
   let recepie: RecepieResponse
+  
+  var schemaColor: Color {
+    colorScheme == .dark ? .white : .black
+  }
+  
   var body: some View {
     VStack {
       WebImage(url: URL(string: recepie.image)) { image in
@@ -27,6 +33,7 @@ struct RecepieCards: View {
         .font(.largeTitle)
         .fontWeight(.bold)
         .fontDesign(.serif)
+        .foregroundColor(schemaColor)
     }
     .frame(height: 420)
     .frame(maxWidth: .infinity)
