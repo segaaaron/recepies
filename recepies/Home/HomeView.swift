@@ -9,13 +9,23 @@ import SwiftUI
 
 struct HomeView: View {
   @ObservedObject var viewModel = HomeViewModel()
-    var body: some View {
-      VStack {
-        Text("Hello world")
+  var body: some View {
+    NavigationView {
+      ScrollView(showsIndicators: false) {
+        LazyVStack {
+          ForEach(viewModel.recepies, id: \.id) { recepie in
+            Text(recepie.name)
+          }
+        }
+        .onAppear {
+          viewModel.fetchrecepiesData()
+        }
       }
+      .navigationTitle(AppConfig.title)
     }
+  }
 }
 
 #Preview {
-    HomeView()
+  HomeView()
 }

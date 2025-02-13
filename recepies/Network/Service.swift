@@ -9,13 +9,12 @@ import Foundation
 import Combine
 
 final class Service {
-  static let shared = Service()
   private let path = ApiUrl()
   private var cancellables = Set<AnyCancellable>()
   
-  private init() {}
+  init() {}
   
-  func fetchData<T: Decodable>(query: String = "", page: Int = 0, type: T.Type) -> Future<T, Error> {
+  func fetchData<T: Decodable>(type: T.Type) -> Future<T, Error> {
     let request = Request()
 
     request.url = path.webServiceUrl(AppConfig.apiKeyName)
