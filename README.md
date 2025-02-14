@@ -24,7 +24,6 @@ This app is localized for Spanish
 
 This application shows recepies around the World, detail and recepies information.
 
-A package was added to cache the images with SDWEBIMAGE.
 ## 🤝 Dependencies
 
 ### [SD_WEBIMAGE](https://github.com/SDWebImage/SDWebImageSwiftUI)
