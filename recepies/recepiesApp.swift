@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct recepiesApp: App {
-    var body: some Scene {
-        WindowGroup {
-          HomeView()
-        }
+  @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+  var body: some Scene {
+    WindowGroup {
+      HomeView()
     }
+  }
 }

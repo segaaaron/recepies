@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D636C2762D5EFFD700FC9FAB /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = D636C2752D5EFFD700FC9FAB /* GoogleMaps */; };
 		D6B9CB9D2D5E3F68003E6ED2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D6B9CB9C2D5E3F68003E6ED2 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -33,9 +34,22 @@
 		D601242F2D5DA11200E50008 /* recepiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = recepiesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D636C2362D5EFA2300FC9FAB /* Exceptions for "recepies" folder in "recepies" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D60124142D5DA11100E50008 /* recepies */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D60124172D5DA11100E50008 /* recepies */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D636C2362D5EFA2300FC9FAB /* Exceptions for "recepies" folder in "recepies" target */,
+			);
 			path = recepies;
 			sourceTree = "<group>";
 		};
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D636C2762D5EFFD700FC9FAB /* GoogleMaps in Frameworks */,
 				D6B9CB9D2D5E3F68003E6ED2 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +141,7 @@
 			name = recepies;
 			packageProductDependencies = (
 				D6B9CB9C2D5E3F68003E6ED2 /* SDWebImageSwiftUI */,
+				D636C2752D5EFFD700FC9FAB /* GoogleMaps */,
 			);
 			productName = recepies;
 			productReference = D60124152D5DA11100E50008 /* recepies.app */;
@@ -211,6 +227,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				D6B9CB702D5E3E81003E6ED2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				D636C2742D5EFFD100FC9FAB /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D60124162D5DA11100E50008 /* Products */;
@@ -415,6 +432,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"recepies/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = recepies/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -444,6 +465,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"recepies/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = recepies/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -573,6 +598,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D636C2742D5EFFD100FC9FAB /* XCRemoteSwiftPackageReference "ios-maps-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googlemaps/ios-maps-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.3.0;
+			};
+		};
 		D6B9CB702D5E3E81003E6ED2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -584,6 +617,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D636C2752D5EFFD700FC9FAB /* GoogleMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D636C2742D5EFFD100FC9FAB /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMaps;
+		};
 		D6B9CB9C2D5E3F68003E6ED2 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D6B9CB702D5E3E81003E6ED2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;

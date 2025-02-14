@@ -22,4 +22,6 @@ struct AppConfig {
   /// Detail info
   static let infoRecepie: String = "Información de la receta"
   static let infoCook: String = "Ingredientes"
+  /// googlemaps button title
+  static let mapsTitle: String = "Ver en Google Maps"
 }

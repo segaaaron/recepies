@@ -14,74 +14,97 @@ struct DetailRecepieView: View {
   let name: String
   
   var body: some View {
-    ScrollView(showsIndicators: false) {
-      VStack {
-        WebImage(url: URL(string: recepieDetail.posterImage)) { image in
-          image
-            .resizable()
-        } placeholder: {
-          Rectangle().foregroundColor(.gray)
-        }
-        .indicator(.activity)
-        .frame(height: 500)
-        .overlay(
-          RoundedRectangle(cornerRadius: 5)
-            .fill(Color.black)
-            .frame(height: 500)
-            .frame(maxWidth: .infinity)
-            .opacity(0.2)
-          , alignment: .topLeading
-        )
-        
+    NavigationStack {
+      ScrollView(showsIndicators: false) {
         VStack {
-          VStack(alignment: .leading, spacing: 10) {
-            Text(name)
-              .font(.title)
-              .fontWeight(.bold)
-              .fontDesign(.serif)
-              .foregroundColor(Color.black)
-              .padding(.top, 10)
-            
-            Text(recepieDetail.detail)
-              .font(Font.system(size: 16, weight: .medium))
-              .fontDesign(.serif)
-              .foregroundColor(Color.black)
-            
-            Text(AppConfig.infoRecepie)
-              .font(.title)
-              .fontWeight(.bold)
-              .fontDesign(.serif)
-              .foregroundColor(Color.black)
-              .padding(.top, 10)
-            
-            Text(recepieDetail.recepieInfo)
-              .font(Font.system(size: 16, weight: .semibold))
-              .fontDesign(.serif)
-              .foregroundColor(Color.black)
-            
-            Text(AppConfig.infoCook)
-              .font(.title)
-              .fontWeight(.bold)
-              .fontDesign(.serif)
-              .foregroundColor(Color.black)
-              .padding(.top, 10)
-            
-            Text(recepieDetail.recepieCook)
-              .font(Font.system(size: 16, weight: .semibold))
-              .fontDesign(.serif)
-              .foregroundColor(Color.black)
+          WebImage(url: URL(string: recepieDetail.posterImage)) { image in
+            image
+              .resizable()
+          } placeholder: {
+            Rectangle().foregroundColor(.gray)
           }
-          .padding([.leading, .trailing], 10)
-          .padding(.bottom, 20)
+          .indicator(.activity)
+          .frame(height: 500)
+          .overlay(
+            RoundedRectangle(cornerRadius: 5)
+              .fill(Color.black)
+              .frame(height: 500)
+              .frame(maxWidth: .infinity)
+              .opacity(0.2)
+            , alignment: .topLeading
+          )
+          
+          VStack {
+            VStack(alignment: .leading, spacing: 10) {
+              Text(name)
+                .font(.title)
+                .fontWeight(.bold)
+                .fontDesign(.serif)
+                .foregroundColor(Color.black)
+                .padding(.top, 10)
+              
+              Text(recepieDetail.detail)
+                .font(Font.system(size: 16, weight: .medium))
+                .fontDesign(.serif)
+                .foregroundColor(Color.black)
+              
+              Text(AppConfig.infoRecepie)
+                .font(.title)
+                .fontWeight(.bold)
+                .fontDesign(.serif)
+                .foregroundColor(Color.black)
+                .padding(.top, 10)
+              
+              Text(recepieDetail.recepieInfo)
+                .font(Font.system(size: 16, weight: .semibold))
+                .fontDesign(.serif)
+                .foregroundColor(Color.black)
+              
+              Text(AppConfig.infoCook)
+                .font(.title)
+                .fontWeight(.bold)
+                .fontDesign(.serif)
+                .foregroundColor(Color.black)
+                .padding(.top, 10)
+              
+              Text(recepieDetail.recepieCook)
+                .font(Font.system(size: 16, weight: .semibold))
+                .fontDesign(.serif)
+                .foregroundColor(Color.black)
+              
+              NavigationLink {
+                FoodsMapView(longitude: 151.20, latitude: -33.86)
+              } label: {
+                Text(AppConfig.mapsTitle)
+                  .font(.headline)
+                  .fontWeight(.bold)
+                  .fontDesign(.serif)
+                  .foregroundColor(Color.white)
+                  .padding()
+                  .background(
+                    RoundedRectangle(cornerRadius: 10.0, style: .continuous)
+                      .fill(Color.customBlue.b1)
+                  )
+                  .overlay(
+                    RoundedRectangle(cornerRadius: 10.0, style: .continuous)
+                      .stroke(Color.clear, lineWidth: 1.0)
+                  )
+                  .padding(.top, 10)
+              }
+            }
+            .padding([.leading, .trailing], 10)
+            .padding(.bottom, 20)
+          }
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
+          .background(Color.white)
+          .cornerRadius(20, corners: [.topLeft, .topRight])
+          .padding(.top, -AppConfig.cornerRadius)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
-        .cornerRadius(20, corners: [.topLeft, .topRight])
-        .padding(.top, -AppConfig.cornerRadius)
+        .frame(maxHeight: .infinity)
       }
-      .frame(maxHeight: .infinity)
+      .edgesIgnoringSafeArea(.top)
     }
-    .edgesIgnoringSafeArea(.top)
+    .navigationBarColor(backgroundColor: Color.customBlue.b3, titleColor: .white)
   }
 }
 
