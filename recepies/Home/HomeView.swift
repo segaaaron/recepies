@@ -9,11 +9,32 @@ import SwiftUI
 
 struct HomeView: View {
   @ObservedObject var viewModel = HomeViewModel()
+  @State var text: String = ""
+  
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {
+        SearchInput(text: $text, placeholder: AppConfig.placeholder)
+          .onChange(of: text) { _ , value in
+            switch value {
+            case let query where query.isEmpty:
+              viewModel.clearData()
+            case let query where query.count > 2:
+              viewModel.fetchSearchData(value)
+            default:
+              break
+            }
+          }
+        
+        switch viewModel.searchFood {
+        case let search where search.isEmpty:
+          Emptystate(EmptpyStateType: .notFound)
+        default:
+          EmptyView()
+        }
+        
         LazyVStack(spacing: 0) {
-          ForEach(viewModel.recepies, id: \.id) { recepie in
+          ForEach(viewModel.searchFood, id: \.id) { recepie in
             NavigationLink {
               DetailRecepieView(recepieDetail: recepie.productDetail, name: recepie.name)
             } label: {
@@ -26,6 +47,9 @@ struct HomeView: View {
         }
         .onAppear {
           viewModel.fetchrecepiesData()
+        }
+        .onDisappear {
+          text = ""
         }
       }
       .navigationTitle(AppConfig.title)
