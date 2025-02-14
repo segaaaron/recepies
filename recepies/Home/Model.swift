@@ -22,14 +22,15 @@ struct RecepieResponse: Codable, Hashable {
 struct ProductDetail: Codable, Hashable {
     let posterImage: String
     let coordinateRecepie: CoordinateRecepie
-    let detail, recepieInfo, recepieCook: String
+    let detail, recepieInfo, country, recepieCook: String
   
-  init(posterImage: String = "", coordinateRecepie: CoordinateRecepie = CoordinateRecepie(), detail: String = "", recepieInfo: String = "", recepieCook: String = "") {
+  init(posterImage: String = "", coordinateRecepie: CoordinateRecepie = CoordinateRecepie(), detail: String = "", recepieInfo: String = "", recepieCook: String = "", country: String = "") {
     self.posterImage = posterImage
     self.coordinateRecepie = coordinateRecepie
     self.detail = detail
     self.recepieInfo = recepieInfo
     self.recepieCook = recepieCook
+    self.country = country
   }
 }
 

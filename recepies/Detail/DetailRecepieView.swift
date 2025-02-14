@@ -73,7 +73,7 @@ struct DetailRecepieView: View {
                 .foregroundColor(Color.black)
               
               NavigationLink {
-                FoodsMapView(longitude: 151.20, latitude: -33.86)
+                FoodsMapView(longitude: Double(recepieDetail.coordinateRecepie.longitude) ?? 0.0, latitude: Double(recepieDetail.coordinateRecepie.latitude) ?? 0.0, country: recepieDetail.country, name: name)
               } label: {
                 Text(AppConfig.mapsTitle)
                   .font(.headline)
